@@ -4,6 +4,8 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var socketio = require("socket.io");
+var cors = require('cors');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -11,6 +13,15 @@ var devices = require('./routes/getDevices');
 var setData = require('./routes/setData')
 
 var app = express();
+
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3003'
+}));
+
+var io = socketio();
+app.io = io;
+var subscribe = require('./routes/subscribe')(io);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +38,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/getdevices', devices);
 app.use('/setdata', setData);
+app.use('/subscribe', subscribe);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -59,5 +71,10 @@ app.use(function(err, req, res, next) {
     });
 });
 
+// socket.io events
+io.on( "connection", function( socket )
+{
+    console.log( "A user connected" );
+});
 
 module.exports = app;

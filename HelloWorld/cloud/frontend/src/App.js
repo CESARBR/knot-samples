@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash'
 import { Icon } from 'semantic-ui-react'
+import openSocket from 'socket.io-client';
+
+const socket = openSocket('http://localhost:3002');
 
 class App extends Component {
   constructor() {
@@ -13,6 +16,32 @@ class App extends Component {
     this.showDevice = this.showDevice.bind(this);
     this.createDeviceList = this.createDeviceList.bind(this);
     this.switchStatus = this.switchStatus.bind(this);
+    this.updateDevice = this.updateDevice.bind(this);
+  }
+
+  updateDevice(device) {
+    const request = {
+      meshblu_auth_uuid: this.state.uuid,
+      meshblu_auth_token: this.state.token,
+      meshblu_host: this.state.host || 'knot-test.cesar.org.br',
+      meshblu_port: this.state.port || '3000',
+    };
+
+    request['deviceid'] = device.id;
+    socket.on(device.id, function(response) {
+      let tmp = this.state.devices;
+      let i = tmp.findIndex((element, index, array) => {
+        return element.id === response.source
+      });
+
+      tmp[i].value = response.data.value;
+
+      this.setState({
+        devices: tmp
+      })
+    }.bind(this)
+  );
+    socket.emit('subscribe', request);
   }
 
   switchStatus(deviceid, sensorid, value) {
