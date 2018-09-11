@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash';
 import { Icon } from 'semantic-ui-react';
+import openSocket from 'socket.io-client';
 
 const axios = require('axios');
 const { meshbluDefault } = require('./config');
+const { backendDefault } = require('./config');
 
 const meshbluDefaultHost = meshbluDefault.host;
 const meshbluDefaultPort = meshbluDefault.port;
@@ -17,6 +19,7 @@ class App extends Component {
     this.createDeviceList = this.createDeviceList.bind(this);
     this.getDevices = this.getDevices.bind(this);
     this.switchStatus = this.switchStatus.bind(this);
+    this.updateDevice = this.updateDevice.bind(this);
   }
 
   getDevices() {
@@ -24,6 +27,12 @@ class App extends Component {
     const { token } = this.state;
     const { host } = this.state;
     const { port } = this.state;
+    const backendRoute = `${backendDefault.host}:${backendDefault.port}`;
+    const socket = openSocket(backendRoute);
+
+    this.setState({
+      socket
+    });
 
     if (!uuid) {
       window.alert('UUID is mandatory'); // eslint-disable-line no-alert
@@ -46,10 +55,39 @@ class App extends Component {
         this.setState({
           devices: response.data
         });
+        _.map(response.data, this.updateDevice);
       })
       .catch((error) => { // eslint-disable-next-line no-alert
         window.alert(`An error occured. Check the information provided and try again. ${error}.`);
       });
+  }
+
+  updateDevice(device) {
+    const { uuid } = this.state;
+    const { token } = this.state;
+    const { host } = this.state;
+    const { port } = this.state;
+    const { socket } = this.state;
+
+    const request = {
+      meshbluHost: host || meshbluDefaultHost,
+      meshbluPort: port || meshbluDefaultPort,
+      meshbluAuthUUID: uuid,
+      meshbluAuthToken: token
+    };
+
+    request.deviceId = device.id;
+    socket.on(device.id, (response) => {
+      const { devices } = this.state;
+      const i = devices.findIndex(element => element.id === response.source);
+
+      devices[i].value = response.data.value;
+
+      this.setState({
+        devices
+      });
+    });
+    socket.emit('subscribe', request);
   }
 
   switchStatus(deviceId, sensorId, value) {
