@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import _ from 'lodash';
 import { Icon } from 'semantic-ui-react';
+import openSocket from 'socket.io-client';
 
 const meshbluDefaultHost = 'knot-test.cesar.org.br';
 const meshbluDefaultPort = '3000';
@@ -14,6 +15,7 @@ class App extends Component {
     this.createDeviceList = this.createDeviceList.bind(this);
     this.getDevices = this.getDevices.bind(this);
     this.switchStatus = this.switchStatus.bind(this);
+    this.updateDevice = this.updateDevice.bind(this);
   }
 
   getDevices() {
@@ -21,6 +23,11 @@ class App extends Component {
     const { token } = this.state;
     const { host } = this.state;
     const { port } = this.state;
+    const socket = openSocket('http://localhost:3002');
+
+    this.setState({
+      socket
+    });
 
     if (!uuid) {
       window.alert('UUID is mandatory'); // eslint-disable-line no-alert
@@ -50,7 +57,36 @@ class App extends Component {
         this.setState({
           devices: json
         });
+        _.map(json, this.updateDevice);
       });
+  }
+
+  updateDevice(device) {
+    const { uuid } = this.state;
+    const { token } = this.state;
+    const { host } = this.state;
+    const { port } = this.state;
+    const { socket } = this.state;
+
+    const request = {
+      meshbluHost: host || meshbluDefaultHost,
+      meshbluPort: port || meshbluDefaultPort,
+      meshbluAuthUUID: uuid,
+      meshbluAuthToken: token
+    };
+
+    request.deviceId = device.id;
+    socket.on(device.id, (response) => {
+      const { devices } = this.state;
+      const i = devices.findIndex(element => element.id === response.source);
+
+      devices[i].value = response.data.value;
+
+      this.setState({
+        devices
+      });
+    });
+    socket.emit('subscribe', request);
   }
 
   switchStatus(deviceId, sensorId, value) {
