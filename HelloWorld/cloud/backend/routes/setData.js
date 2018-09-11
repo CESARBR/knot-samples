@@ -3,7 +3,6 @@ var router = express.Router();
 const KNoTCloud = require('knot-cloud');
 
 router.get('/', async function(req, res) {
-  console.log(req.headers);
   let { deviceid } = req.headers;
   let { sensorid } = req.headers;
   let { value } = req.headers;

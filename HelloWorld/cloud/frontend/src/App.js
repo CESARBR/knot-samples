@@ -82,7 +82,6 @@ class App extends Component {
   }
 
   createDeviceList() {
-    console.log(this.state.devices);
     return (
       <div id='online-devices'>
         <h1 className='online-devices-header'>

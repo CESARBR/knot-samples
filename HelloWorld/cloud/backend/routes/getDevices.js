@@ -25,7 +25,6 @@ router.get('/', async function(req, res) {
   try {
     await cloud.connect();
     let devices = await cloud.getDevices();
-    console.log(devices);
     let onlineDevices = await getOnlineDevices(cloud, devices);
     await cloud.close();
     res.status(200).send(onlineDevices);
