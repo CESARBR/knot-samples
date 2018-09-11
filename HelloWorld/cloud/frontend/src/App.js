@@ -12,7 +12,25 @@ class App extends Component {
     this.getDevices = this.getDevices.bind(this);
     this.showDevice = this.showDevice.bind(this);
     this.createDeviceList = this.createDeviceList.bind(this);
+    this.switchStatus = this.switchStatus.bind(this);
   }
+
+  switchStatus(deviceid, sensorid, value) {
+    let myHeaders = new Headers({
+      "meshblu_auth_uuid": this.state.uuid,
+      "meshblu_auth_token": this.state.token,
+      "meshblu_host": this.state.host || 'knot-test.cesar.org.br',
+      "meshblu_port": this.state.port || '3000',
+      "deviceid": deviceid,
+      "sensorid": sensorid,
+    });
+    myHeaders.append('value', value ? 'false' : 'true');
+
+    var myInit = { method: 'GET',
+               headers: myHeaders};
+    fetch('setdata', myInit)
+  }
+
   showDevice(device) {
     return(
       <div className='online-device' id={device.id} key={device.id}>
@@ -27,6 +45,9 @@ class App extends Component {
         <div className='device-value'>
           {device.value ? <Icon name='lightbulb outline' color='yellow' size='massive' /> : <Icon name='lightbulb' color='black' size='massive' />}
         </div>
+        <button className='switch' onClick={()=>this.switchStatus(device.id, device.sensorid, device.value)}>
+          CHANGE VALUE
+        </button>
       </div>
     );
   }
