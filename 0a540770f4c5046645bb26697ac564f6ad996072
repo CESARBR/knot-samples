@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22cb482c_d30d324a",
+        "filename": "HelloWorld/cloud/backend/app.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "Use 2 spaces",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 4
+      },
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27474ef9_17083391",
+        "filename": "HelloWorld/cloud/backend/app.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "I believe that you don\u0027t need to create a route when using socket.io",
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "498e38ef_8ea62b9f",
+        "filename": "HelloWorld/cloud/backend/routes/subscribe.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "As this file represents only the `subscribe` handler, we could write in a similar fashion as the other routes. It could export only the subscribe handler and leave the \u0027connection\u0027 handle to the main file. Could be something like:\n\n    module.exports \u003d (client) \u003d\u003e {\n      return async function (req) {\n        ...\n      }\n    };\n\nThen, in the main file:\n\n    const subscribe \u003d require(\u0027./routes/subscribe\u0027);\n\n    io.on(\u0027connection\u0027, (client) \u003d\u003e {\n      client.on(\u0027subscribe\u0027, subscribe(client));\n    });\n\nWhat do you think?",
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d112d2_c8d95a97",
+        "filename": "HelloWorld/cloud/backend/routes/subscribe.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "These aren\u0027t necessary.",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 3,
+        "endChar": 32
+      },
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a6935d9_4d52cb7e",
+        "filename": "HelloWorld/cloud/backend/routes/subscribe.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "import packages in the beginning of the file.",
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "363bf67c_f51116ad",
+        "filename": "HelloWorld/cloud/backend/routes/subscribe.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "We usually use camelCase instead of snake_case, although snake_case can be chosen for request fields. If you keep snake_case, change deviceid to device_id.",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c45e1c30_cdbc7df6",
+        "filename": "HelloWorld/cloud/backend/routes/subscribe.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "Remove the empty line",
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e2a7fc7_6b44ccba",
+        "filename": "HelloWorld/cloud/backend/routes/subscribe.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "You could emit an error and close the connection is this case.",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c34026bc_611d5877",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "Should the socket be opened here? Won\u0027t it start a connection when this file is imported? Is there any initialization method for the component?",
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "522134fe_c42e6e15",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "use a more meaningful name",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "057a538f_9028d75e",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T20:13:30Z",
+      "side": 1,
+      "message": "Extract this to a method",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "0a540770f4c5046645bb26697ac564f6ad996072",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
