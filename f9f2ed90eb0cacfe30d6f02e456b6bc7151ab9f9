@@ -229,6 +229,23 @@
     },
     {
       "key": {
+        "uuid": "4af61e56_249e8af3",
+        "filename": "HelloWorld/cloud/frontend/src/App.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T17:57:59Z",
+      "side": 1,
+      "message": "- Add space between class/element name and {\n- Add space after :\n- Add empty line between classes/elements.",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5642785_0bcdf1cd",
         "filename": "HelloWorld/cloud/frontend/src/App.css",
         "patchSetId": 1
