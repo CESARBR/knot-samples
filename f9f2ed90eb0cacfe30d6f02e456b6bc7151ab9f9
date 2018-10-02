@@ -1,0 +1,397 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f766f42_152aa930",
+        "filename": "HelloWorld/cloud/backend/app.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "In REST APIs we think of resources instead of operations, so this would by `/devices`. The get devices operations would be achieved by executing GET /devices",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4536d6db_8941f086",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Rename the file to devices.js",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d9319bb_eba7f928",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Replace the vars with const.",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51cadce1_cd051a46",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "This name is a bit misleading. It isn\u0027t fetching the devices, as they come as arguments. It is filtering plus fetching the last published data. I think it could do everything here: fetch devices, filter and fetch data. This way all the operations with the cloud would be made in one place.\n\nTo be more precise and avoid the reader to get into the method, you can add that you are fetching the data to the name of the method: getOnlineDevicesWithData.",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11eb8c5f_529e77c5",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Remove this empty line",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "778406bf_9dfced33",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "This can be const",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb6ed75a_a924b0cb",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "This can be extract to a method",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66947688_f88c64b4",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "You can rewrite this in a chain:\n\n_.chain(await cloud.getDevices())\n  .filter(\u0027online\u0027)\n  .map(...)\n  .value();",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e87eace_bd41b497",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Remove this",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36725063_6a8b6993",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Where is it being used?",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5f96e9e_13bfcb1c",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Remove this log",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "378fc337_662a8d81",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "This kind of error should be a 500. You can send the `err`, no need to attribute to to `result`.",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5642785_0bcdf1cd",
+        "filename": "HelloWorld/cloud/frontend/src/App.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Add an empty line before this",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ca06201_d1f61d9b",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Did you forget to install lodash in this patch?",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6d7fff9_c9011f16",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Choose a more meaningful name.",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 12
+      },
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88f4ebc5_d0a1f84a",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Why are you making these binds?",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 61
+      },
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f5583ed_2f94ff27",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Add an empty line before.\n\nI think that `createDevice` is a more precise name and it will be easier to understand that it is being used by `createDeviceList`. `showDevice` gives me the idea that you are showing/hiding an element.",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4535e366_46911897",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Remove this",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a83ee7db_e88a8e01",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Choose a more meaningful name",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec79b9da_8f830c13",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Choose a more meaningful name",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 14
+      },
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2cdb275_ba9c94d1",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T15:11:30Z",
+      "side": 1,
+      "message": "Where is the implementation of this method?",
+      "range": {
+        "startLine": 76,
+        "startChar": 17,
+        "endLine": 76,
+        "endChar": 34
+      },
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
