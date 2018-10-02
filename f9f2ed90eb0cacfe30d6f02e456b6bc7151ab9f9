@@ -161,6 +161,23 @@
     },
     {
       "key": {
+        "uuid": "ec250498_15b40f21",
+        "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-02T17:14:06Z",
+      "side": 1,
+      "message": "This close() should be called in case of error. Move this to a finally block",
+      "revId": "f9f2ed90eb0cacfe30d6f02e456b6bc7151ab9f9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36725063_6a8b6993",
         "filename": "HelloWorld/cloud/backend/routes/getDevices.js",
         "patchSetId": 1
