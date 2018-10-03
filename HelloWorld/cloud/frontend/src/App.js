@@ -6,28 +6,14 @@ import { Icon } from 'semantic-ui-react';
 const meshbluDefaultHost = 'knot-test.cesar.org.br';
 const meshbluDefaultPort = '3000';
 
-const showDevice = device => (
-  <div className="online-device" id={device.id} key={device.id}>
-    <div className="device-info">
-      <div className="device-name">
-        {device.name}
-      </div>
-      <div className="device-id">
-        {device.id}
-      </div>
-    </div>
-    <div className="device-value">
-      {device.value ? <Icon name="lightbulb outline" color="yellow" size="massive" /> : <Icon name="lightbulb" color="black" size="massive" />}
-    </div>
-  </div>);
-
-
 class App extends Component {
   constructor() {
     super();
     this.state = {};
+    this.showDevice = this.showDevice.bind(this);
     this.createDeviceList = this.createDeviceList.bind(this);
     this.getDevices = this.getDevices.bind(this);
+    this.switchStatus = this.switchStatus.bind(this);
   }
 
   getDevices() {
@@ -64,6 +50,52 @@ class App extends Component {
       });
   }
 
+  switchStatus(deviceId, sensorId, value) {
+    const { uuid } = this.state;
+    const { token } = this.state;
+    const { host } = this.state;
+    const { port } = this.state;
+
+    const knotHeaders = new Headers({
+      meshbluAuthUUID: uuid,
+      meshbluAuthToken: token,
+      meshbluHost: host || 'knot-test.cesar.org.br',
+      meshbluPort: port || '3000',
+      deviceId,
+      sensorId
+    });
+    knotHeaders.append('value', value ? 'false' : 'true');
+
+    /*
+     * FIXME: fetch lowercases all the headers.
+     */
+    fetch('devices', {
+      method: 'PUT',
+      headers: knotHeaders
+    });
+  }
+
+  showDevice(device) {
+    return (
+      <div className="online-device" id={device.id} key={device.id}>
+        <div className="device-info">
+          <div className="device-name">
+            {device.name}
+          </div>
+          <div className="device-id">
+            {device.id}
+          </div>
+        </div>
+        <div className="device-value">
+          {device.value ? <Icon name="lightbulb outline" color="yellow" size="massive" /> : <Icon name="lightbulb" color="black" size="massive" />}
+        </div>
+        <button type="button" className="switch" onClick={() => this.switchStatus(device.id, device.sensorid, device.value)}>
+              CHANGE VALUE
+        </button>
+      </div>
+    );
+  }
+
   createDeviceList() {
     const { devices } = this.state;
     return (
@@ -71,7 +103,7 @@ class App extends Component {
         <h1 className="online-devices-header">
           ONLINE DEVICES
         </h1>
-        {_.map(devices, showDevice)}
+        {_.map(devices, this.showDevice)}
       </div>
     );
   }

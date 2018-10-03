@@ -37,4 +37,39 @@ router.get('/', async (req, res) => {
   }
 });
 
+/*
+ * FIXME: fetch lowercases all the headers.
+ * When fixed/changed on frontend, need to fix here.
+ */
+router.put('/', async (req, res) => {
+  const { meshbluauthuuid } = req.headers;
+  const { meshbluauthtoken } = req.headers;
+  const { meshbluhost } = req.headers;
+  const { meshbluport } = req.headers;
+  const { deviceid } = req.headers;
+  const { sensorid } = req.headers;
+  const { value } = req.headers;
+
+  const cloud = new KNoTCloud(
+    meshbluhost,
+    meshbluport,
+    meshbluauthuuid,
+    meshbluauthtoken
+  );
+
+  try {
+    await cloud.connect();
+    const data = [{
+      sensorId: parseInt(sensorid, 10),
+      value
+    }];
+    await cloud.setData(deviceid, data);
+    res.status(200).send({ value });
+  } catch (err) {
+    res.status(500).send(err);
+  } finally {
+    await cloud.close;
+  }
+});
+
 module.exports = router;
