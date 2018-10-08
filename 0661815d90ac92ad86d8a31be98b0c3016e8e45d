@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de97cdbb_c63636d5",
+        "filename": "HelloWorld/cloud/backend/routes/devices.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-08T20:33:44Z",
+      "side": 1,
+      "message": "Pass this in the URL + body",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "0661815d90ac92ad86d8a31be98b0c3016e8e45d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15b1e044_76460dd8",
+        "filename": "HelloWorld/cloud/backend/routes/devices.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-08T20:33:44Z",
+      "side": 1,
+      "message": "Use req.get",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 32
+      },
+      "revId": "0661815d90ac92ad86d8a31be98b0c3016e8e45d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
