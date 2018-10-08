@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52ccb539_c340b091",
+        "filename": "HelloWorld/cloud/backend/routes/devices.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-08T20:27:41Z",
+      "side": 1,
+      "message": "Use req.get to avoid this case issue: http://expressjs.com/en/api.html#req.get",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "706142e418e6676c08881559f648d553793fa58d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df177c15_11cf79b4",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-08T20:27:41Z",
+      "side": 1,
+      "message": "Use upper case to denote constant: MESHBLU_DEFAULT_HOST.",
+      "range": {
+        "startLine": 6,
+        "startChar": 6,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "706142e418e6676c08881559f648d553793fa58d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad0bcc1c_0fc2a568",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-08T20:27:41Z",
+      "side": 1,
+      "message": "Same here",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "706142e418e6676c08881559f648d553793fa58d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "013702ad_7e6dfdb0",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-08T20:27:41Z",
+      "side": 1,
+      "message": "showDevice makes me thing of this method as opposed to hideDevice. This being called by createDeviceList to create a device, I would call it createDevice, unless it was used also as \"show device\".",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "706142e418e6676c08881559f648d553793fa58d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5ea4fb6_f8f6214a",
+        "filename": "HelloWorld/cloud/frontend/src/App.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-08T20:27:41Z",
+      "side": 1,
+      "message": "You can remove this comment. Get the headers ignoring case in the backend.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 7
+      },
+      "revId": "706142e418e6676c08881559f648d553793fa58d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
