@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0609e57_42dd8589",
+        "filename": "hello-world/cloud/frontend/src/App.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-16T17:19:29Z",
+      "side": 1,
+      "message": "Use import instead of require",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "ba46f6287b6d4ca1730c3f46a6b5a67dac16fa23",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
