@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64da19b4_d77ef049",
+        "filename": "hello-world/cloud/frontend/src/App.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013086
+      },
+      "writtenOn": "2018-10-16T17:20:55Z",
+      "side": 1,
+      "message": "Use import (you can import both in the same line).",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "3bb3b8c35fbc51f4d55dfac7f60e46ebf5152508",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": true
+    }
+  ]
+}
