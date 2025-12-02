@@ -1,2 +1,2 @@
-# knot-samples
-KNoT platform samples
+# Free AI at api.airforce
+https://discord.gg/AJDsM7jtbq
